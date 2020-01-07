@@ -25,5 +25,5 @@ log('Classification Report')
 print(classification_report(y, lm.predict(X)))
 log('All done')
 
-def predict(msg):
-    return lm.predict(tfidf.transform([msg]))[0]
+def predict(text):
+    return lm.predict(tfidf.transform([text]))[0]
