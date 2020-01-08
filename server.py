@@ -6,8 +6,17 @@ from model import predict
 app = Flask(__name__)
 
 @app.route('/')
+@app.route('/home')
 def home():
-    return 'This is the home page.'
+    return render_template(
+        'home.html'
+    )
+
+@app.route('/about')
+def about():
+    return render_template(
+        'about.html'
+    )
 
 @app.route('/roll-dice')
 def rolldice():
@@ -54,12 +63,15 @@ def show_greeting_result():
 
 @app.route('/text-input')
 def predict_text():
-    predict(text)
+    return render_template(
+        'text-input.html'
+    )
 
 @app.route('/text-result', methods=['POST'])
 def predict_text_result():
     text = request.form['text']
     return render_template(
         'text-result.html',
-        text=text
+        text = text,
+        prediction = predict(text)
     )
