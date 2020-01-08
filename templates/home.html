@@ -4,9 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title></title>
 </head>
 <body>
         <h1 style="background-color:turquoise;">Home Page</h1>
+
+            <p>Today is {{ the_date }}.</p>
+        <h2>My Favorite Programming Languages</h2>
+            <ol>
+                {% for language, url in languages %}
+                    <li>
+                        <a href="{{ url }}">{{ language }}</a>
+                    </li>
+                {% endfor %}
+            </ol>
+
 </body>
 </html>
